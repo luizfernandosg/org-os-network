@@ -1,0 +1,62 @@
+{
+  "lexicon": 1,
+  "id": "{{AUTHORITY}}.need",
+  "description": "Draft. Something an organisation needs from the network, published in the open so others can answer it. Only public needs exist as records: an org-os instance's private and matching-only needs never leave it, so this lexicon has no visibility field. Deliberately small, to be co-designed with Weave before it settles.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["title", "text", "createdAt"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxGraphemes": 200,
+            "maxLength": 2000,
+            "description": "A short statement of the need."
+          },
+          "text": {
+            "type": "string",
+            "maxGraphemes": 5000,
+            "maxLength": 50000,
+            "description": "The need in full: what, why, and what would help."
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 64,
+            "knownValues": [
+              "tools-and-tech",
+              "funding-and-finance",
+              "governance-and-legal",
+              "knowledge-and-research",
+              "communications-and-media",
+              "events-and-gathering",
+              "land-and-place",
+              "education-and-learning",
+              "people-and-skills"
+            ],
+            "description": "The area it falls in. The values follow the org-os needs/offers pack (from the network survey)."
+          },
+          "when": {
+            "type": "string",
+            "maxGraphemes": 300,
+            "maxLength": 3000,
+            "description": "When it is needed, in free text (for example 'before March 2027' or 'ongoing')."
+          },
+          "status": {
+            "type": "string",
+            "maxLength": 64,
+            "knownValues": ["open", "met", "closed"],
+            "description": "Where the need stands. open: still needed. met: someone answered it. closed: no longer needed."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When it was published."
+          }
+        }
+      }
+    }
+  }
+}

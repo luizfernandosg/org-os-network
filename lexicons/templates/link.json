@@ -1,0 +1,39 @@
+{
+  "lexicon": 1,
+  "id": "{{AUTHORITY}}.link",
+  "description": "One side's public statement of a relation with another organisation. A link is mutual when the subject publishes the reciprocal (memberOf with hasMember, peerOf with peerOf), claimed when only one side has, and ended by deleting the record. Invites and requests are not records: they stay private, in the instances and their transports.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "relation", "createdAt"],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did",
+            "description": "The DID of the other organisation."
+          },
+          "relation": {
+            "type": "string",
+            "maxLength": 64,
+            "knownValues": ["memberOf", "hasMember", "peerOf"],
+            "description": "How the publishing organisation relates to the subject. memberOf: the publisher is a member of the subject. hasMember: the subject is a member of the publisher. peerOf: the two are peers. The reciprocal of memberOf is hasMember, and of peerOf is peerOf."
+          },
+          "network": {
+            "type": "string",
+            "maxGraphemes": 128,
+            "maxLength": 1280,
+            "description": "The name of the network this relation belongs to, when the two organisations share more than one."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When this side made the statement."
+          }
+        }
+      }
+    }
+  }
+}

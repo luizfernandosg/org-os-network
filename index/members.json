@@ -1,0 +1,30 @@
+{
+  "note": "The first members of the network (decision Q12 in docs/DESIGN.md, 2026-11-22). The index reads only these DIDs. A null DID means the member has no atproto account yet; it is listed and read nothing.",
+  "members": [
+    {
+      "name": "ReFi DAO",
+      "did": "did:plc:ie6nze3zltsffksdwlhl2hbw",
+      "handle": "refidao-commons.bsky.social",
+      "source": "The ReFi DAO Knowledge Commons repository (publishes xyz.regencoordination.kb.*): the commons' development identity, opened 2026-09-21. DID document read at plc.directory 2026-11-22.",
+      "caveat": "The commons' notes call this a disposable dev identity, to be replaced at a later phase of the commons' own plan. ReFi DAO has no Certified account yet."
+    },
+    {
+      "name": "ReFi BCN",
+      "did": "did:plc:c2w67k3gsxs43lljtytejgbu",
+      "handle": "refi-barcelona.certified.one",
+      "source": "Certified directory: GET https://api.hypercerts.dev/xrpc/app.certified.actor.searchOrganizations?search=ReFi%20Barcelona, 2026-11-22. DID document read at plc.directory 2026-11-22."
+    },
+    {
+      "name": "Regen Coordination (Knowledge Commons WG)",
+      "did": null,
+      "handle": null,
+      "source": "No account found: Certified directory search for 'Regen Coordination', 2026-11-22, returned none. The xyz.regencoordination.kb.* records are published from ReFi DAO's commons repository, not from an RC account."
+    },
+    {
+      "name": "Brasil Regenerativo",
+      "did": null,
+      "handle": null,
+      "source": "No account found: Certified directory search for 'Brasil Regenerativo', 2026-11-22, returned none."
+    }
+  ]
+}

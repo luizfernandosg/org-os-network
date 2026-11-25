@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The window — mock-up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,350;9..144,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* House tokens, copied from org-os admin's house skin (light + dark). */
+:root {
+  --paper:#f4f2ec; --ink:#1c1d1a; --mute:#57554e; --faint:#6b685f; --rule:#e2dfd6; --wash:#ebe8e0;
+  --attn:#a8452a; --attn-soft:#f6e5dc; --raised:#fdfcf9; --edge:#827e73; --accent:#2e5c4a; --accent-soft:#e2ebe4;
+  --sunken:#efede6; --rule-strong:#d6d2c7;
+  --display:"Fraunces","Iowan Old Style",Georgia,serif;
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --radius:10px; --radius-sm:6px;
+  --shadow-card:0 1px 0 rgba(28,29,26,.03),0 1px 3px rgba(28,29,26,.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#121412; --ink:#ecebe5; --mute:#aeaca3; --faint:#9a978e; --rule:#2b2f2c; --wash:#232725;
+    --attn:#e8916a; --attn-soft:#33231b; --raised:#1a1d1b; --edge:#727771; --accent:#8fc2a6; --accent-soft:#1b2b23;
+    --sunken:#0e100f; --rule-strong:#3a3f3b; --shadow-card:0 1px 0 rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#121412; --ink:#ecebe5; --mute:#aeaca3; --faint:#9a978e; --rule:#2b2f2c; --wash:#232725;
+  --attn:#e8916a; --attn-soft:#33231b; --raised:#1a1d1b; --edge:#727771; --accent:#8fc2a6; --accent-soft:#1b2b23;
+  --sunken:#0e100f; --rule-strong:#3a3f3b; --shadow-card:0 1px 0 rgba(0,0,0,.25);
+}
+* { box-sizing:border-box; }
+html,body { margin:0; }
+body { background:var(--paper); color:var(--ink); font:400 .875rem/1.5 var(--sans); -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration-color:var(--rule-strong); text-underline-offset:2px; }
+.mock { background:var(--attn-soft); color:var(--attn); font-size:.75rem; padding:6px 16px; text-align:center; }
+.shell { display:grid; grid-template-columns:232px 1fr; min-height:100vh; }
+nav.side { border-right:1px solid var(--rule); padding:16px 12px; position:sticky; top:0; height:100vh; }
+.org { display:flex; align-items:center; gap:10px; padding:4px 8px 16px; }
+.seal { width:26px; height:26px; border-radius:7px; background:var(--accent); color:var(--raised); display:grid; place-items:center; font:500 .75rem var(--sans); }
+.org b { font-weight:600; display:block; line-height:1.2; }
+.org span { color:var(--faint); font-size:.75rem; }
+nav.side a { display:flex; justify-content:space-between; padding:6px 8px; border-radius:var(--radius-sm); text-decoration:none; color:var(--mute); }
+nav.side a.on { background:var(--wash); color:var(--ink); font-weight:500; }
+nav.side .grp { color:var(--faint); font-size:.6875rem; letter-spacing:.08em; text-transform:uppercase; padding:16px 8px 4px; }
+main { padding:32px 40px 64px; max-width:1120px; }
+h1 { font:350 2rem/1.1 var(--display); letter-spacing:-.02em; margin:0 0 6px; }
+.lead { color:var(--mute); max-width:62ch; margin:0 0 20px; font-size:.9375rem; }
+.idbar { display:flex; flex-wrap:wrap; gap:8px 24px; padding:12px 16px; background:var(--raised); border:1px solid var(--rule); border-radius:var(--radius); box-shadow:var(--shadow-card); margin-bottom:32px; font-size:.8125rem; }
+.idbar div { display:flex; gap:8px; align-items:baseline; }
+.k { color:var(--faint); }
+.mono { font-family:var(--mono); font-size:.78125rem; }
+.grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:28px; align-items:start; }
+section { margin-bottom:32px; }
+h2 { font:500 1rem/1.25 var(--sans); margin:0 0 4px; display:flex; align-items:baseline; gap:8px; }
+h2 small { color:var(--faint); font-weight:400; font-size:.8125rem; }
+.sub { color:var(--mute); margin:0 0 12px; font-size:.8125rem; }
+.card { background:var(--raised); border:1px solid var(--rule); border-radius:var(--radius); box-shadow:var(--shadow-card); }
+.row { display:grid; grid-template-columns:1fr auto; gap:4px 16px; padding:12px 16px; border-top:1px solid var(--rule); }
+.row:first-child { border-top:0; }
+.row .t { font-weight:500; }
+.row .m { color:var(--faint); font-size:.75rem; grid-column:1 / -1; }
+.chip { display:inline-flex; align-items:center; gap:6px; height:22px; padding:0 9px; border-radius:999px; font-size:.75rem; white-space:nowrap; border:1px solid var(--rule-strong); color:var(--mute); }
+.chip::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; opacity:.8; }
+.chip.ok { color:var(--accent); background:var(--accent-soft); border-color:transparent; }
+.chip.wait { color:var(--attn); background:var(--attn-soft); border-color:transparent; }
+.chip.none { color:var(--faint); }
+.counted { padding:10px 16px; border-top:1px dashed var(--rule-strong); color:var(--faint); font-size:.75rem; }
+.kind { font:400 .6875rem var(--mono); color:var(--faint); }
+.why { font-size:.75rem; color:var(--accent); }
+.match { display:grid; grid-template-columns:1fr 28px 1fr; align-items:stretch; padding:14px 16px; gap:0; border-top:1px solid var(--rule); }
+.match:first-child { border-top:0; }
+.side-n, .side-o { padding:2px 0; }
+.side-o { text-align:right; }
+.joint { display:grid; place-items:center; color:var(--edge); }
+.lbl { font-size:.6875rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); }
+.ex { font:400 .6875rem var(--mono); color:var(--attn); }
+.rings { display:grid; grid-template-columns:150px 1fr; gap:16px; padding:16px; align-items:center; }
+.legend div { display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-top:1px solid var(--rule); font-size:.8125rem; }
+.legend div:first-child { border-top:0; }
+.legend b { font-weight:500; }
+.legend span { color:var(--faint); }
+pre.rec { margin:0; white-space:pre-wrap; word-break:break-all; padding:14px 16px; background:var(--sunken); border-top:1px solid var(--rule); font:400 .75rem/1.6 var(--mono); color:var(--mute); overflow-x:auto; border-radius:0 0 var(--radius) var(--radius); }
+.actions { display:flex; gap:8px; padding:12px 16px; align-items:center; flex-wrap:wrap; }
+button { font:500 .8125rem var(--sans); height:32px; padding:0 14px; border-radius:7px; border:1px solid var(--edge); background:var(--raised); color:var(--ink); cursor:not-allowed; }
+button.primary { background:var(--ink); color:var(--raised); border-color:var(--ink); }
+.note { color:var(--faint); font-size:.75rem; }
+.feed .row .t { font-weight:400; }
+.empty { padding:14px 16px; color:var(--faint); font-size:.8125rem; border-top:1px solid var(--rule); }
+footer { color:var(--faint); font-size:.75rem; border-top:1px solid var(--rule); padding-top:16px; margin-top:16px; max-width:80ch; }
+@media (max-width: 900px) {
+  .shell { grid-template-columns:1fr; }
+  nav.side { position:static; height:auto; border-right:0; border-bottom:1px solid var(--rule); display:flex; overflow-x:auto; gap:4px; padding:8px 12px; }
+  nav.side .grp, .org span { display:none; }
+  .org { padding:4px 8px; }
+  main { padding:24px 16px 48px; }
+  .grid { grid-template-columns:1fr; }
+  .match { grid-template-columns:1fr; }
+  .side-o { text-align:left; }
+  .joint { justify-content:start; padding:4px 0; }
+  .rings { grid-template-columns:1fr; justify-items:center; }
+  .legend { width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="mock">Mock-up of the member's window. Real records from the local index; anything marked <b>example</b> is invented, because nobody publishes those record types yet.</div>
+<div class="shell">
+  <nav class="side" aria-label="Hub">
+    <div class="org"><div class="seal">RB</div><div><b>ReFi Barcelona</b><span>Hub · signed in as a member</span></div></div>
+    <div class="grp">Organisation</div>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Members</a>
+    <a href="#">Knowledge</a>
+    <div class="grp">Beyond the org</div>
+    <a href="#" class="on">Network <span class="k">3</span></a>
+    <a href="#">Federation</a>
+    <a href="#">Portal</a>
+  </nav>
+
+  <main>
+    <h1>The network, from ReFi Barcelona</h1>
+    <p class="lead">What the organisations you're linked to have published, what meets your needs, and what you could publish back. Everything here is read from their own repositories; nothing on this page is held by the network itself.</p>
+
+    <div class="idbar">
+      <div><span class="k">Speaks as</span> refi-barcelona.certified.one</div>
+      <div><span class="k">DID</span> <span class="mono">did:plc:c2w67k3gsxs43lljtytejgbu</span></div>
+      <div><span class="k">Published</span> Certified profile</div>
+      <div><span class="k">Network profile</span> <span class="chip wait">draft, not published</span></div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <section>
+          <h2>Your links <small>4 named · 1 counted</small></h2>
+          <p class="sub">A link is mutual when both sides have published it. Asking stays private until the other side says yes.</p>
+          <div class="card">
+            <div class="row">
+              <div><div class="t">ReFi DAO</div></div>
+              <span class="chip wait">requested</span>
+              <div class="m">You asked to join as a local node (privately, by GitHub issue). When ReFi DAO accepts, you publish “member of” and they publish “has member”. <span class="ex">example</span></div>
+            </div>
+            <div class="row">
+              <div><div class="t">Regen Coordination · Knowledge Commons WG</div></div>
+              <span class="chip none">peers by files</span>
+              <div class="m">Both instances list each other. Neither side can publish yet: Regen Coordination has no atproto account. <span class="ex">example</span></div>
+            </div>
+            <div class="row">
+              <div><div class="t">Brasil Regenerativo</div></div>
+              <span class="chip none">no account yet</span>
+              <div class="m">Listed as a peer in your federation file. It becomes a link when it has an account and says so too. <span class="ex">example</span></div>
+            </div>
+            <div class="row">
+              <div><div class="t">Miceli Social</div></div>
+              <span class="chip">claimed by you</span>
+              <div class="m">Only your side lists it. <span class="ex">example</span></div>
+            </div>
+            <div class="counted">1 private peer, inside your membrane: counted, never named or published. <span class="ex">example</span></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Needs and offers that meet yours <small>2 matches</small></h2>
+          <p class="sub">Public needs and offers from linked organisations, set against yours. Matching-only ones stay at home and are compared there.</p>
+          <div class="card">
+            <div class="match">
+              <div class="side-n"><div class="lbl">Your need</div><div class="t">Facilitators for a bioregional funding round in the Penedès, spring 2027</div><div class="ex">example</div></div>
+              <div class="joint" aria-hidden="true">↔</div>
+              <div class="side-o"><div class="lbl">ReFi DAO offers</div><div class="t">Round design and Gitcoin operations, from four local-node rounds</div><div class="ex">example</div></div>
+            </div>
+            <div class="match">
+              <div class="side-n"><div class="lbl">Your offer</div><div class="t">A cooperative space at Bloc4 for network gatherings in Barcelona</div><div class="ex">example</div></div>
+              <div class="joint" aria-hidden="true">↔</div>
+              <div class="side-o"><div class="lbl">Regen Coordination needs</div><div class="t">A host for the Knowledge Commons WG's spring in-person</div><div class="ex">example</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>What the network knows that touches your work <small>from 1,607 commons records</small></h2>
+          <p class="sub">Matched against the words on your own profile: bioregional, cooperative, funding rounds, local nodes. Every entry is reviewed and sourced by the commons that published it.</p>
+          <div class="card">
+            <div class="row"><div><span class="kind">claim with evidence</span><div class="t">Bioregional Financing Facilities — three objectives and four facility templates (ReFi Podcast S4E1)</div></div><span class="why">bioregional</span><div class="m">ReFi DAO commons · reviewed 20 Sep 2026</div></div>
+            <div class="row"><div><span class="kind">encyclopedia entry</span><div class="t">Local ReFi ecosystem catalysts (the pre-node stage of local ecosystem formation)</div></div><span class="why">local nodes</span><div class="m">ReFi DAO commons · written from the Global South</div></div>
+            <div class="row"><div><span class="kind">claim with evidence</span><div class="t">Silvi Protocol Bioregional Reforestation Grants — $100,000 across eight bioregions on 65/35 milestone payouts</div></div><span class="why">funding rounds</span><div class="m">ReFi DAO commons · reviewed 20 Sep 2026</div></div>
+            <div class="row"><div><span class="kind">concept lineage</span><div class="t">Tragedy of the commons → cooperative coordination (ReFi framing)</div></div><span class="why">cooperative</span><div class="m">ReFi DAO commons · reviewed 19 Sep 2026</div></div>
+            <div class="row"><div><span class="kind">resource</span><div class="t">Celo Connect (Barcelona, April 2022)</div></div><span class="why">Barcelona</span><div class="m">ReFi DAO commons · an event in your city, in the commons' record</div></div>
+          </div>
+        </section>
+      </div>
+
+      <div>
+        <section>
+          <h2>Your membranes</h2>
+          <p class="sub">Only what lies outside every membrane reaches the network.</p>
+          <div class="card">
+            <div class="rings">
+              <svg viewBox="0 0 150 150" width="150" height="150" role="img" aria-label="Five nested membranes, public on the outside, private at the centre">
+                <circle cx="75" cy="75" r="72" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.25"/>
+                <circle cx="75" cy="75" r="56" fill="var(--raised)" stroke="var(--rule-strong)" stroke-dasharray="3 3"/>
+                <circle cx="75" cy="75" r="41" fill="var(--wash)" stroke="var(--rule-strong)"/>
+                <circle cx="75" cy="75" r="27" fill="var(--sunken)" stroke="var(--rule-strong)"/>
+                <circle cx="75" cy="75" r="13" fill="var(--ink)"/>
+                <text x="75" y="12" text-anchor="middle" font-size="8" fill="var(--accent)" font-family="Geist, sans-serif">public</text>
+              </svg>
+              <div class="legend">
+                <div><b>Public</b><span>Certified profile · links once mutual</span></div>
+                <div><b>Network peers</b><span>matching-only needs <span class="ex">example</span></span></div>
+                <div><b>Members</b><span>drafts, meeting notes <span class="ex">example</span></span></div>
+                <div><b>Council</b><span>finances, decisions in progress <span class="ex">example</span></span></div>
+                <div><b>Private</b><span>1 peer, contacts <span class="ex">example</span></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Ready to publish <small>1 record</small></h2>
+          <p class="sub">Your network profile, drafted from your instance's federation file. Publishing always asks first.</p>
+          <div class="card">
+            <div class="row"><div><div class="t">Network profile</div></div><span class="chip wait">not published</span><div class="m">Adds to your Certified profile; it never repeats its logo, location or description.</div></div>
+<pre class="rec">{
+  "$type": "example.orgosnetwork.profile",
+  "name": "ReFi Barcelona",
+  "homepage": "https://refibcn.cat/",
+  "networks": [{ "hub": "did:plc:…refidao", "name": "ReFi DAO" }],
+  "membranes": ["public", "peers", "members", "council", "private"],
+  "certifiedProfile": { "uri": "at://did:plc:c2w67…/app.certified.actor.organization/self" }
+}</pre>
+            <div class="actions"><button class="primary" disabled>Publish…</button><button disabled>See what changes</button><span class="note">Placeholder domain: refused on a live account until the network has its own.</span></div>
+          </div>
+        </section>
+
+        <section class="feed">
+          <h2>From your links, lately</h2>
+          <p class="sub">New records from the organisations you're linked to.</p>
+          <div class="card">
+            <div class="row"><div><span class="kind">signal · ReFi DAO commons</span><div class="t">How ReFi Cape Town runs — a youth-led node using DAO tooling, a hackathon and a local impacts marketplace</div></div><div class="m">reviewed 20 Sep 2026</div></div>
+            <div class="row"><div><span class="kind">claim · ReFi DAO commons</span><div class="t">ReFi DAO supported ~22 Local Nodes across six continents in 2023</div></div><div class="m">reviewed 20 Sep 2026</div></div>
+            <div class="empty">No Certified updates from your links yet. When ReFi DAO posts one, it shows here beside the commons' records.</div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer>Mock-up, 22 Nov 2026. Data: the knowledge network's local index, rebuilt 23 Nov 01:25 UTC, 1,608 records from two members (ReFi DAO's commons, 1,607; ReFi BCN's Certified profile, 1). Links, needs, offers and membrane contents are examples. Styled with the org-os Hub's house tokens; not built in the Hub.</footer>
+  </main>
+</div>
+</body>
+</html>

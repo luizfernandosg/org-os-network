@@ -1,0 +1,11 @@
+{
+  "$type": "example.orgosnetwork.profile",
+  "name": "Riverbend Seed Library",
+  "networks": [
+    {
+      "hub": "valley-commons",
+      "name": "Valley Commons"
+    }
+  ],
+  "createdAt": "2026-11-22T10:00:00.000Z"
+}

@@ -1,0 +1,90 @@
+{
+  "lexicon": 1,
+  "id": "{{AUTHORITY}}.profile",
+  "description": "An organisation's window profile on the org-os network: how it shows up as a publisher, which networks it belongs to, which content authorities it publishes under and which membranes it declares. It extends the organisation's Certified profile (app.certified.actor.organization) by reference and never repeats its fields (logo, location, and the like).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "literal:self",
+      "description": "One per repository, at rkey 'self'. Only public facts: nothing from inside a membrane belongs here.",
+      "record": {
+        "type": "object",
+        "required": ["name", "createdAt"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxGraphemes": 128,
+            "maxLength": 1280,
+            "description": "The organisation's name as it appears on the network."
+          },
+          "description": {
+            "type": "string",
+            "maxGraphemes": 3000,
+            "maxLength": 30000,
+            "description": "What the organisation is and what it knows about, in its own words."
+          },
+          "homepage": {
+            "type": "string",
+            "format": "uri",
+            "description": "The organisation's public website."
+          },
+          "instance": {
+            "type": "string",
+            "format": "uri",
+            "description": "Where the organisation's org-os instance lives (its repository or site): the window this profile belongs to."
+          },
+          "networks": {
+            "type": "array",
+            "maxLength": 50,
+            "items": { "type": "ref", "ref": "#network" },
+            "description": "Networks the organisation says it belongs to. A claim from this side only; the membership itself is shown by link records, mutual when both sides publish them."
+          },
+          "authorities": {
+            "type": "array",
+            "maxLength": 20,
+            "items": { "type": "string", "maxLength": 253 },
+            "description": "Lexicon authorities the organisation publishes its content under, as reversed-domain strings (for example 'xyz.regencoordination.kb' or 'org.brasilregenerativo'). Lets a reader know which collections to look for in this repository."
+          },
+          "membranes": {
+            "type": "array",
+            "maxLength": 20,
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "knownValues": ["public", "peers", "members", "council", "private"]
+            },
+            "description": "Names of the membranes the organisation declares, from the outside in. Names only: what lies inside a membrane is never published, and neither is who is in it."
+          },
+          "certifiedProfile": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef",
+            "description": "The organisation's app.certified.actor.organization record, when it has one. This profile adds to that one and does not repeat it."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When this profile record was first written."
+          }
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "description": "A network the organisation names as one it belongs to.",
+      "required": ["hub"],
+      "properties": {
+        "hub": {
+          "type": "string",
+          "format": "did",
+          "description": "The DID of the network's hub organisation."
+        },
+        "name": {
+          "type": "string",
+          "maxGraphemes": 128,
+          "maxLength": 1280,
+          "description": "The network's name, for display."
+        }
+      }
+    }
+  }
+}

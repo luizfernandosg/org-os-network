@@ -1,0 +1,18 @@
+{
+  "note": "What the index follows. An entry ending in '.*' is an NSID prefix. The example.orgosnetwork authority is a placeholder until the network's domain is chosen (phase 2).",
+  "collections": {
+    "network": [
+      "example.orgosnetwork.profile",
+      "example.orgosnetwork.link",
+      "example.orgosnetwork.need",
+      "example.orgosnetwork.offer"
+    ],
+    "federation": ["xyz.regencoordination.kb.*"],
+    "certified": ["app.certified.actor.organization", "org.hypercerts.context.attachment"]
+  },
+  "plcDirectory": "https://plc.directory",
+  "jetstream": "wss://jetstream2.us-east.bsky.network/subscribe",
+  "db": "data/index.sqlite",
+  "serve": { "host": "127.0.0.1", "port": 4690 },
+  "userAgent": "org-os-network-index (read-only)"
+}

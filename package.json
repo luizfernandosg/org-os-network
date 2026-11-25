@@ -1,0 +1,22 @@
+{
+  "name": "org-os-network",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "The org-os network's shared vocabulary and read-only index.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "build:lexicons": "node scripts/build-lexicons.mjs",
+    "check:lexicons": "node scripts/build-lexicons.mjs --check",
+    "index:rebuild": "node index/src/backfill.mjs rebuild",
+    "index:follow": "node index/src/follow.mjs",
+    "index:serve": "node index/src/serve.mjs"
+  },
+  "devDependencies": {
+    "@atproto/lexicon": "^0.7.21"
+  }
+}

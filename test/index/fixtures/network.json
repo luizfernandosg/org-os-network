@@ -1,0 +1,46 @@
+{
+  "members": [
+    { "name": "Commons A", "did": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa", "handle": "a.example", "source": "fixture" },
+    { "name": "Org B", "did": "did:web:b.example", "handle": "b.example", "source": "fixture" },
+    { "name": "Group C", "did": null, "handle": null, "source": "fixture" }
+  ],
+  "patterns": [
+    "example.orgosnetwork.profile",
+    "example.orgosnetwork.need",
+    "xyz.regencoordination.kb.*",
+    "app.certified.actor.organization",
+    "org.hypercerts.context.attachment"
+  ],
+  "didDocs": {
+    "https://plc.directory/did:plc:aaaaaaaaaaaaaaaaaaaaaaaa": {
+      "id": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "alsoKnownAs": ["at://a.example"],
+      "service": [{ "id": "#atproto_pds", "type": "AtprotoPersonalDataServer", "serviceEndpoint": "https://pds-a.example" }]
+    },
+    "https://b.example/.well-known/did.json": {
+      "id": "did:web:b.example",
+      "service": [{ "id": "did:web:b.example#atproto_pds", "type": "AtprotoPersonalDataServer", "serviceEndpoint": "https://pds-b.example/" }]
+    }
+  },
+  "repos": {
+    "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa": {
+      "pds": "https://pds-a.example",
+      "records": [
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s1", "cid": "c-s1", "value": { "$type": "xyz.regencoordination.kb.signal", "title": "Soil carbon pilots", "notes": "first" } },
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s2", "cid": "c-s2", "value": { "$type": "xyz.regencoordination.kb.signal", "title": "Bioregional finance", "notes": "second" } },
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s3", "cid": "c-s3", "value": { "$type": "xyz.regencoordination.kb.signal", "title": "Commons governance", "notes": "third" } },
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.resource/r1", "cid": "c-r1", "value": { "$type": "xyz.regencoordination.kb.resource", "title": "A field guide" } },
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/example.orgosnetwork.need/n1", "cid": "c-n1", "value": { "$type": "example.orgosnetwork.need", "title": "Translators" } },
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/app.bsky.feed.post/p1", "cid": "c-p1", "value": { "$type": "app.bsky.feed.post", "text": "not followed" } },
+        { "uri": "at://did:plc:zzzzzzzzzzzzzzzzzzzzzzzz/xyz.regencoordination.kb.resource/foreign", "cid": "c-f", "value": { "$type": "xyz.regencoordination.kb.resource", "title": "Foreign record served by A's PDS" } }
+      ]
+    },
+    "did:web:b.example": {
+      "pds": "https://pds-b.example",
+      "records": [
+        { "uri": "at://did:web:b.example/app.certified.actor.organization/self", "cid": "c-o", "value": { "$type": "app.certified.actor.organization", "organizationType": ["nonprofit"] } },
+        { "uri": "at://did:web:b.example/org.hypercerts.context.attachment/t1", "cid": "c-t1", "value": { "$type": "org.hypercerts.context.attachment", "title": "Report", "subjects": [{ "uri": "at://did:plc:zzzzzzzzzzzzzzzzzzzzzzzz/org.hypercerts.claim.activity/x" }], "content": [{ "uri": "https://elsewhere.example/report.pdf" }] } }
+      ]
+    }
+  }
+}

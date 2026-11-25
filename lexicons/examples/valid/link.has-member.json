@@ -1,0 +1,7 @@
+{
+  "$type": "example.orgosnetwork.link",
+  "subject": "did:plc:exampleriverbendseeds",
+  "relation": "hasMember",
+  "network": "Valley Commons",
+  "createdAt": "2026-11-22T11:00:00.000Z"
+}

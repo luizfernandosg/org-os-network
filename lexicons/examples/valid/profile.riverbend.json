@@ -1,0 +1,28 @@
+{
+  "$type": "example.orgosnetwork.profile",
+  "name": "Riverbend Seed Library",
+  "description": "A community seed library in a fictional river valley. We know about seed saving, cold storage on a small budget and running a lending library with volunteers.",
+  "homepage": "https://riverbend-seeds.example",
+  "instance": "https://github.com/riverbend-seeds-example/riverbend-os",
+  "networks": [
+    {
+      "hub": "did:plc:examplevalleycommons",
+      "name": "Valley Commons"
+    }
+  ],
+  "authorities": [
+    "example.riverbendseeds.kb"
+  ],
+  "membranes": [
+    "public",
+    "peers",
+    "members",
+    "council",
+    "private"
+  ],
+  "certifiedProfile": {
+    "uri": "at://did:plc:exampleriverbendseeds/app.certified.actor.organization/self",
+    "cid": "bafyreie5737gdxlw5i64vzichcalba3z2v5n6icifvx5xytvske7mr3hpm"
+  },
+  "createdAt": "2026-11-22T10:00:00.000Z"
+}
