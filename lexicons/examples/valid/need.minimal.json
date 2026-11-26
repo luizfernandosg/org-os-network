@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.need",
+  "$type": "org.orgosnetwork.need",
   "title": "A volunteer coordinator",
   "text": "Someone to keep the lending rota for two months.",
   "createdAt": "2026-11-22T10:12:00.000Z"

@@ -30,7 +30,7 @@ test('listAllRecords stops when a cursor repeats', async () => {
 
 test('listAllRecords with an empty collection makes one call', async () => {
   const { fetchImpl, calls } = makeFetch();
-  assert.deepEqual(await listAllRecords(fetchImpl, 'https://pds-a.example', A, 'example.orgosnetwork.offer'), []);
+  assert.deepEqual(await listAllRecords(fetchImpl, 'https://pds-a.example', A, 'org.orgosnetwork.offer'), []);
   assert.equal(calls.length, 1);
 });
 

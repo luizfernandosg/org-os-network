@@ -11,7 +11,7 @@ test('backfill reads only followed collections from members, and only their own 
   assert.deepEqual(got.errors, []);
   const uris = got.records.map((r) => r.uri);
   assert.deepEqual(uris, [
-    'at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/example.orgosnetwork.need/n1',
+    'at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/org.orgosnetwork.need/n1',
     'at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.resource/r1',
     'at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s1',
     'at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s2',
@@ -44,7 +44,7 @@ test('rebuild is deterministic: two runs give the same rows (modulo indexed_at)'
   assert.equal(first.records.length, 7);
   assert.deepEqual(r1.counts, {
     'app.certified.actor.organization': 1,
-    'example.orgosnetwork.need': 1,
+    'org.orgosnetwork.need': 1,
     'org.hypercerts.context.attachment': 1,
     'xyz.regencoordination.kb.resource': 1,
     'xyz.regencoordination.kb.signal': 3,
@@ -56,7 +56,7 @@ test('rebuild is deterministic: two runs give the same rows (modulo indexed_at)'
 test('rebuild drops rows that are no longer published', async () => {
   const db = openDb();
   await rebuild(db, opts());
-  db.prepare("INSERT INTO records VALUES ('at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/example.orgosnetwork.need/gone', 'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'example.orgosnetwork.need', 'gone', null, '{}', 'x')").run();
+  db.prepare("INSERT INTO records VALUES ('at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/org.orgosnetwork.need/gone', 'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'org.orgosnetwork.need', 'gone', null, '{}', 'x')").run();
   await rebuild(db, opts());
   assert.equal(db.prepare("SELECT COUNT(*) AS n FROM records WHERE rkey = 'gone'").get().n, 0);
 });

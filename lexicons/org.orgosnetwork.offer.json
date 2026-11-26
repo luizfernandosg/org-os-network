@@ -1,7 +1,7 @@
 {
   "lexicon": 1,
-  "id": "example.orgosnetwork.need",
-  "description": "Draft. Something an organisation needs from the network, published in the open so others can answer it. Only public needs exist as records: an org-os instance's private and matching-only needs never leave it, so this lexicon has no visibility field. Deliberately small, to be co-designed with Weave before it settles.",
+  "id": "org.orgosnetwork.offer",
+  "description": "Draft. Something an organisation offers the network, published in the open so others can take it up. Only public offers exist as records: an org-os instance's private and matching-only offers never leave it, so this lexicon has no visibility field. Deliberately small, to be co-designed with Weave before it settles.",
   "defs": {
     "main": {
       "type": "record",
@@ -18,13 +18,13 @@
             "type": "string",
             "maxGraphemes": 200,
             "maxLength": 2000,
-            "description": "A short statement of the need."
+            "description": "A short statement of the offer."
           },
           "text": {
             "type": "string",
             "maxGraphemes": 5000,
             "maxLength": 50000,
-            "description": "The need in full: what, why, and what would help."
+            "description": "The offer in full: what it is, who it is for, and how to take it up."
           },
           "category": {
             "type": "string",
@@ -42,21 +42,21 @@
             ],
             "description": "The area it falls in. The values follow the org-os needs/offers pack (from the network survey)."
           },
-          "when": {
+          "terms": {
             "type": "string",
             "maxGraphemes": 300,
             "maxLength": 3000,
-            "description": "When it is needed, in free text (for example 'before March 2027' or 'ongoing')."
+            "description": "On what terms it is offered, in free text (for example 'free to network members' or 'paid, sliding scale')."
           },
           "status": {
             "type": "string",
             "maxLength": 64,
             "knownValues": [
               "open",
-              "met",
+              "taken",
               "closed"
             ],
-            "description": "Where the need stands. open: still needed. met: someone answered it. closed: no longer needed."
+            "description": "Where the offer stands. open: available. taken: someone took it up and it has no more room. closed: withdrawn."
           },
           "createdAt": {
             "type": "string",

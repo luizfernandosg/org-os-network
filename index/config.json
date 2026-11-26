@@ -1,11 +1,11 @@
 {
-  "note": "What the index follows. An entry ending in '.*' is an NSID prefix. The example.orgosnetwork authority is a placeholder until the network's domain is chosen (phase 2).",
+  "note": "What the index follows. An entry ending in '.*' is an NSID prefix. The network's types are under the org.orgosnetwork authority (orgosnetwork.org); need and offer are drafts that nobody publishes yet.",
   "collections": {
     "network": [
-      "example.orgosnetwork.profile",
-      "example.orgosnetwork.link",
-      "example.orgosnetwork.need",
-      "example.orgosnetwork.offer"
+      "org.orgosnetwork.profile",
+      "org.orgosnetwork.link",
+      "org.orgosnetwork.need",
+      "org.orgosnetwork.offer"
     ],
     "federation": ["xyz.regencoordination.kb.*"],
     "certified": ["app.certified.actor.organization", "org.hypercerts.context.attachment"]

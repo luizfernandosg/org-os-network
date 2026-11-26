@@ -5,15 +5,18 @@ repository, next to its content. The content itself (knowledge objects, pages, s
 each federation's own lexicon authority (for example `xyz.regencoordination.kb.*` or
 `org.brasilregenerativo.*`). The network does not define content types.
 
-Status: **placeholder authority, nothing published.** `example.orgosnetwork` holds the place until the
-network's domain is chosen.
+Status: **authority chosen, nothing published.** The authority is `org.orgosnetwork`, for the
+network's domain `orgosnetwork.org` (not registered yet). It replaced the placeholder
+`example.orgosnetwork`. Only **profile** and **link** will be published under it; **need** and
+**offer** stay drafts, not published until they are co-designed with Weave. How publishing works:
+[docs/PUBLISHING.md](../docs/PUBLISHING.md).
 
 | NSID | Record key | What it is |
 |---|---|---|
-| `example.orgosnetwork.profile` | `literal:self` | An organisation's window profile |
-| `example.orgosnetwork.link` | `tid` | One side's statement of a relation with another organisation |
-| `example.orgosnetwork.need` | `tid` | *Draft.* A public need |
-| `example.orgosnetwork.offer` | `tid` | *Draft.* A public offer |
+| `org.orgosnetwork.profile` | `literal:self` | An organisation's window profile |
+| `org.orgosnetwork.link` | `tid` | One side's statement of a relation with another organisation |
+| `org.orgosnetwork.need` | `tid` | *Draft, not published.* A public need |
+| `org.orgosnetwork.offer` | `tid` | *Draft, not published.* A public offer |
 
 ## The types
 
@@ -96,9 +99,9 @@ nothing else.
 
 ## Open items
 
-1. **The domain.** It replaces `example.orgosnetwork` ([Q7](../docs/DESIGN.md#decisions)). It's a one-line change, but records
-   published under the placeholder would have to be rewritten, so choose the domain before anything
-   is published.
+1. **The domain.** `orgosnetwork.org` is chosen ([Q7](../docs/DESIGN.md#decisions)) but not registered
+   yet. Until it is, and until profile and link are published from the network's own account
+   ([docs/PUBLISHING.md](../docs/PUBLISHING.md)), no resolver can find these types.
 2. **needs and offers, with Weave.** Weave signs in with Certified. The fields are co-designed
    with it rather than coined twice, so these drafts are a starting point, not a proposal. Compared
    with the pack's placeholder lexicon (`example.commons.*`), `createdAt` is added and the free-text

@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.link",
+  "$type": "org.orgosnetwork.link",
   "subject": "did:plc:examplevalleycommons",
   "relation": "memberOf",
   "network": "Valley Commons",

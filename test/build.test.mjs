@@ -76,7 +76,7 @@ test('bad authorities are refused', () => {
   for (const bad of ['', 'single', 'Example.Org', 'example..org', 'example.org.', '-x.org', 42, undefined]) {
     assert.throws(() => assertAuthority(bad), /not a lexicon authority/, String(bad));
   }
-  assert.equal(assertAuthority('example.orgosnetwork'), 'example.orgosnetwork');
+  assert.equal(assertAuthority('org.orgosnetwork'), 'org.orgosnetwork');
 });
 
 test('a template that uses the token outside its id is refused', (t) => {

@@ -38,8 +38,8 @@ members, counts per collection and a search box.
 | `src/follow.mjs` | Live follow over Jetstream |
 | `src/serve.mjs` | The read surface |
 
-Followed collections: the network's own types (`example.orgosnetwork.profile`, `.link`, `.need`,
-`.offer`; placeholder authority until phase 2), the federation's `xyz.regencoordination.kb.*`, and
+Followed collections: the network's own types (`org.orgosnetwork.profile`, `.link`, and the drafts
+`.need` and `.offer`), the federation's `xyz.regencoordination.kb.*`, and
 Certified's `app.certified.actor.organization` and `org.hypercerts.context.attachment`.
 
 Privacy floor:
@@ -66,7 +66,7 @@ Privacy floor:
 | Regen Coordination (Knowledge Commons WG) | (no account) | 0 |
 | Brasil Regenerativo | (no account) | 0 |
 
-No member publishes `example.orgosnetwork.*` or `org.hypercerts.context.attachment` records yet.
+No member publishes the network's own types or `org.hypercerts.context.attachment` records yet.
 ReFi BCN's repository also holds `org.hypercerts.claim.activity` and others; they are not followed.
 
 ## Open
