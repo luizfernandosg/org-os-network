@@ -33,8 +33,9 @@ Weave rather than coined twice. Until the domain is chosen, the authority is the
 own repository. It is mutual when both sides have published it. Invite tokens and requests that are
 not public stay on org-os's file and GitHub transports.
 
-**Q12. The first members.** ReFi DAO, ReFi Barcelona, Regen Coordination (through its Knowledge
-Commons working group) and Brasil Regenerativo. Every other organisation is read through Certified
+**Q12. The organisations the index reads first.** ReFi DAO, ReFi Barcelona, Regen Coordination (through its
+Knowledge Commons working group) and Brasil Regenerativo. None has joined yet. An organisation is a member
+once it and the network it joins have each published the link (Q8). Every other organisation is read through Certified
 until it asks to join.
 
 **Q18. Who speaks for an organisation.** The account its org-os instance names.

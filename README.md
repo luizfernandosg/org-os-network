@@ -26,6 +26,9 @@ chosen; nothing here is published.
 | A hosted index | | Does not exist |
 | Live records of the network's own types | | None published |
 
+org-os's current release is [v0.7.6](https://github.com/regen-coordination/org-os-template/releases/tag/v0.7.6)
+(the docs read against 0.7, and a fix in `org-os-kms publish`); it changes nothing in the rows above.
+
 ## Words
 
 - **org-os network**: many organisations publishing to each other from their own repositories.
@@ -55,7 +58,7 @@ offer behind the `--experimental-sqlite` flag. These commands were run from a fr
 older versions were not tried.
 
 ```bash
-git clone <this repository> org-os-network
+git clone https://github.com/luizfernandosg/org-os-network.git
 cd org-os-network
 npm ci                    # installs @atproto/lexicon, the one dependency (dev only)
 npm test                  # every test; offline

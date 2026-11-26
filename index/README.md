@@ -2,7 +2,8 @@
 
 A rebuildable reading of what the network's members have published on atproto. It reads only the
 types the network follows, only from members, and only by GET. It holds no accounts, writes to no
-repository, and runs locally (on `127.0.0.1`) for now. Where it is hosted is left for phase 4 ([phases](../docs/DESIGN.md#phases)).
+repository, and runs locally (on `127.0.0.1`) for now. "Member" in this file means an entry in
+`members.json`: the organisations the index reads first. None has joined the network yet ([Q12](../docs/DESIGN.md#decisions)). Where it is hosted is left for phase 4 ([phases](../docs/DESIGN.md#phases)).
 
 ## Rebuildable
 
@@ -32,7 +33,7 @@ members, counts per collection and a search box.
 
 | File | What |
 |---|---|
-| `members.json` | The members ([decision Q12](../docs/DESIGN.md#decisions)): name, DID or null, where the DID was found |
+| `members.json` | The organisations read ([decision Q12](../docs/DESIGN.md#decisions)): name, DID or null, where the DID was found |
 | `config.json` | Followed collections, PLC directory, Jetstream endpoint, database path, port |
 | `src/backfill.mjs` | Backfill and rebuild |
 | `src/follow.mjs` | Live follow over Jetstream |
@@ -53,7 +54,7 @@ Privacy floor:
 
 ## Smoke run, 2026-11-23
 
-`npm run index:rebuild` against the real members, read-only, 00:27 UTC. 1,608 records, no errors.
+`npm run index:rebuild` against the four organisations listed, read-only, 00:27 UTC. 1,608 records, no errors.
 
 | Member | Collection | Records |
 |---|---|---|
@@ -73,6 +74,6 @@ ReFi BCN's repository also holds `org.hypercerts.claim.activity` and others; the
 
 - Jetstream mirrors Bluesky's relay. Whether that relay crawls `certified.one` (ReFi BCN's PDS) was
   not checked; if it doesn't, ReFi BCN's changes arrive only at the next rebuild.
-- ReFi DAO's DID is the commons' dev identity, which its own notes mark as disposable. When it is
+- ReFi DAO's DID is a development identity and may be replaced. When it is
   replaced, change `members.json` and rebuild.
 - Node 22.5–22.12 need `--experimental-sqlite` for `node:sqlite`; 22.13 and later don't.

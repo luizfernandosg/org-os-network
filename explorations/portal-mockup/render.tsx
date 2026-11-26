@@ -118,7 +118,7 @@ function Page() {
   return (
     <div className="portal-page">
       <a className="skip" href="#portal-main">Skip to the portal</a>
-      <p className="portal-notice">Mock-up of the network portal, built from the Hub portal’s own components. The commons records and ReFi Barcelona’s words are real (read from the index); what is marked <span className="nx-ex">example</span>, and every need and offer, is invented.</p>
+      <p className="portal-notice">Mock-up of the network portal, built from the Hub portal’s own components. The commons records and ReFi Barcelona’s words are real (read from the index); what is marked <span className="nx-ex">example</span>, and every need and offer, is invented. None of the organisations shown has joined the network or agreed to what is shown.</p>
       <div className="portal">
         <PortalTop
           org={{ name: 'The org-os network' } as never}
