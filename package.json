@@ -12,6 +12,7 @@
     "test": "node --test \"test/**/*.test.mjs\"",
     "build:lexicons": "node scripts/build-lexicons.mjs",
     "check:lexicons": "node scripts/build-lexicons.mjs --check",
+    "publish:lexicons": "node scripts/publish-lexicons.mjs",
     "index:rebuild": "node index/src/backfill.mjs rebuild",
     "index:follow": "node index/src/follow.mjs",
     "index:serve": "node index/src/serve.mjs"
