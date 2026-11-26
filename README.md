@@ -9,8 +9,8 @@ read-only **index** (`index/`), and the explorations that may grow into it (`exp
 code that publishes and federates lives in org-os (`org-os-kms`, the network track); changes go
 back to org-os as proposals.
 
-Status: early, local. The lexicon authority is a **placeholder** until the network's domain is
-chosen; nothing here is published.
+Status: early, local. The network's domain is chosen, **orgosnetwork.org**, so the lexicon authority
+is `org.orgosnetwork`. The domain is not registered yet and nothing here is published.
 
 ## What is built, and where
 
@@ -19,10 +19,13 @@ chosen; nothing here is published.
 | Federation on atproto: asking to join a network, membership links published by each side, link state read from both repositories | [org-os](https://github.com/regen-coordination/org-os-template), [v0.7.4](https://github.com/regen-coordination/org-os-template/tree/v0.7.4) | Released |
 | `org-os-kms` 0.2.0: a read-only Hypercerts/Certified connector and the needs/offers pack | org-os [v0.7.4](https://github.com/regen-coordination/org-os-template/tree/v0.7.4) | Released |
 | Sign in with a Bluesky or Certified account; a network's node accounts | org-os [v0.7.5](https://github.com/regen-coordination/org-os-template/tree/v0.7.5) | Released |
-| The shared vocabulary: profile, link, need, offer | `lexicons/` here | Drafted, under the placeholder authority |
+| The shared vocabulary: profile, link | `lexicons/` here | Drafted under `org.orgosnetwork`; not published |
+| The drafts need and offer | `lexicons/` here | Drafts, not published until co-designed with Weave |
+| Publishing profile and link ([docs/PUBLISHING.md](docs/PUBLISHING.md)) | `scripts/publish-lexicons.mjs` here | Script and steps written; never run against a live account |
 | The read-only index | `index/` here | Prototype, runs locally |
 | Mock-ups of a member's window and the visitor's portal | `explorations/` here | Static pages, partly invented data |
-| The network's domain (the lexicon authority) | | Not chosen |
+| The network's domain (the lexicon authority) | orgosnetwork.org | Chosen, not registered |
+| The network's own atproto account (hosts the schemas) | | Does not exist |
 | A hosted index | | Does not exist |
 | Live records of the network's own types | | None published |
 
@@ -44,9 +47,9 @@ chosen; nothing here is published.
 | `lexicons/` | The network's shared types: what crosses federations (window profile, links, needs, offers) |
 | `index/` | The read-only index prototype |
 | `explorations/` | Two static HTML mock-ups: a member's window (`window-mockup/`) and the visitor's portal (`portal-mockup/`) |
-| `docs/` | `DESIGN.md`: the decisions (Q1, Q2, ...), the phases, what is not being done and what is open |
-| `scripts/` | The lexicon build |
-| `test/` | Tests for the lexicons, the examples, the build and the index |
+| `docs/` | `DESIGN.md`: the decisions (Q1, Q2, ...), the phases, what is not being done and what is open. `PUBLISHING.md`: how the types get published |
+| `scripts/` | The lexicon build and the publish script |
+| `test/` | Tests for the lexicons, the examples, the build, the publish script and the index |
 
 ## Run it
 
@@ -61,6 +64,7 @@ npm ci                    # installs @atproto/lexicon, the one dependency (dev o
 npm test                  # every test; offline
 npm run check:lexicons    # exit 1 if the built lexicons are out of date with lexicons/templates/
 npm run build:lexicons    # rebuilds them from lexicons/authority.json; a clean clone has no diff after it
+npm run publish:lexicons  # dry run: prints the schema records it would publish; sends nothing
 ```
 
 The tests run the index against a fixture (`test/index/fixtures/network.json`) with a mocked fetch,
