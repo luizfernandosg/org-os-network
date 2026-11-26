@@ -1,0 +1,10 @@
+{
+  "note": "A made-up roster for the portal's tests: five organisations in every account state.",
+  "members": [
+    { "name": "Valley Commons", "did": "did:plc:examplevalleycommons", "handle": "valley.example", "source": "fixture" },
+    { "name": "Riverbend Seeds", "did": "did:plc:exampleriverbendseeds", "handle": "riverbend.example", "source": "fixture", "caveat": "A test account." },
+    { "name": "Hilltop Toolshed", "did": "did:web:hilltop.example", "handle": null, "source": "fixture" },
+    { "name": "Quiet Grove", "did": "did:plc:examplequietgrove", "handle": "grove.example", "source": "fixture" },
+    { "name": "Coastal Group", "did": null, "handle": null, "source": "fixture" }
+  ]
+}
