@@ -6,7 +6,7 @@
   "description": "The org-os network's shared vocabulary and read-only index.",
   "license": "MIT",
   "engines": {
-    "node": ">=22.5"
+    "node": ">=22.13"
   },
   "scripts": {
     "test": "node --test \"test/**/*.test.mjs\"",
