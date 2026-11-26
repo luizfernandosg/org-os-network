@@ -64,7 +64,9 @@ not yet registered; nothing is published under it.
 ## Not doing
 
 - No fork of other projects' lexicons. Changes go upstream.
-- No hosted accounts or PDS for groups, and no labeler.
+- The network runs no hosted accounts or PDS for groups, and no labeler. Hosting is a role a member may take
+  instead: one organisation may host another's files, portal or Hub by an agreement the two publish; the
+  hosted one keeps its own account, can see who hosts it, and can leave with its files and its private store.
 - Nothing from inside a membrane on the open network.
 - No republishing of individuals' data.
 

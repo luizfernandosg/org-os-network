@@ -87,7 +87,9 @@ of how the portal page was made; it does not run from this repository.
 
 - Lexicons of others (Certified, Hypercerts, Leaflet) are never forked; changes go upstream.
 - Nothing from inside a membrane is published. No individuals' data is republished.
-- No accounts or hosting for groups; the index is the one service, and it can be rebuilt from the network.
+- The network itself runs no accounts or hosting for groups; the index is its one service, and it can be rebuilt
+  from the network. A member organisation may host another's files, portal or Hub, by an agreement the two
+  publish; the hosted organisation keeps its own account, can see who hosts it, and can leave with its files.
 
 ## Licence
 
