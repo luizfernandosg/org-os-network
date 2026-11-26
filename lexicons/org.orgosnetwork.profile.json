@@ -1,6 +1,6 @@
 {
   "lexicon": 1,
-  "id": "example.orgosnetwork.profile",
+  "id": "org.orgosnetwork.profile",
   "description": "An organisation's window profile on the org-os network: how it shows up as a publisher, which networks it belongs to, which content authorities it publishes under and which membranes it declares. It extends the organisation's Certified profile (app.certified.actor.organization) by reference and never repeats its fields (logo, location, and the like).",
   "defs": {
     "main": {

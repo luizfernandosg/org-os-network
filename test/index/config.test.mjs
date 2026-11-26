@@ -16,7 +16,7 @@ test('NSID prefixes match by prefix only, exact NSIDs exactly', () => {
 test('the shipped config and members load', () => {
   const c = loadConfig();
   assert.ok(c.patterns.includes('xyz.regencoordination.kb.*'));
-  assert.ok(c.patterns.includes('example.orgosnetwork.need'));
+  assert.ok(c.patterns.includes('org.orgosnetwork.need'));
   assert.equal(c.members.length, 4);
   assert.equal(c.serve.host, '127.0.0.1');
 });

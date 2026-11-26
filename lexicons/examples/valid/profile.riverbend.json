@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.profile",
+  "$type": "org.orgosnetwork.profile",
   "name": "Riverbend Seed Library",
   "description": "A community seed library in a fictional river valley. We know about seed saving, cold storage on a small budget and running a lending library with volunteers.",
   "homepage": "https://riverbend-seeds.example",

@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.link",
+  "$type": "org.orgosnetwork.link",
   "subject": "did:plc:examplevalleycommons",
   "createdAt": "2026-11-22T10:05:00.000Z"
 }

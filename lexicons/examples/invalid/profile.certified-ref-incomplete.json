@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.profile",
+  "$type": "org.orgosnetwork.profile",
   "name": "Riverbend Seed Library",
   "certifiedProfile": {
     "uri": "at://did:plc:exampleriverbendseeds/app.certified.actor.organization/self"

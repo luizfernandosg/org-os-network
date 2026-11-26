@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.profile",
+  "$type": "org.orgosnetwork.profile",
   "description": "No name given.",
   "createdAt": "2026-11-22T10:00:00.000Z"
 }

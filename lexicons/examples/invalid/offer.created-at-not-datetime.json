@@ -1,5 +1,5 @@
 {
-  "$type": "example.orgosnetwork.offer",
+  "$type": "org.orgosnetwork.offer",
   "title": "Facilitation",
   "text": "A bad timestamp.",
   "createdAt": "last tuesday"

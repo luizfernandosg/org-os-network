@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // scripts/build-lexicons.mjs: lexicons/templates/*.json -> lexicons/<authority>.<name>.json.
 //
-// The network's domain is not chosen yet, so every template names its authority with the token
-// {{AUTHORITY}}, and the one place that says what it is is lexicons/authority.json. Swapping the
+// Every template names its authority with the token {{AUTHORITY}}, and the one place that says
+// what it is is lexicons/authority.json (org.orgosnetwork, for orgosnetwork.org). Swapping the
 // domain = edit that file, run `npm run build:lexicons`. The token may appear only in a template's
 // `id`; the build refuses anything else, so a swap changes every id and nothing more.
 //

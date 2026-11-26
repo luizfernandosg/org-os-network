@@ -26,8 +26,9 @@ It is read-only, it can be rebuilt from the network at any time, and it holds no
 **Q7. The vocabulary.** One shared vocabulary, under the network's own domain, for the types that
 cross federations: extensions to an organisation's profile, membership, needs and offers. Each
 federation keeps its own authority for its own content. Needs and offers are designed together with
-Weave rather than coined twice. Until the domain is chosen, the authority is the placeholder
-`example.orgosnetwork`.
+Weave rather than coined twice. The domain is `orgosnetwork.org`, so the authority is
+`org.orgosnetwork` (it replaced the placeholder `example.orgosnetwork`). Only profile and link are
+published under it; need and offer stay drafts until they are co-designed with Weave.
 
 **Q8. Federation on atproto.** A public membership link is a record that each side publishes in its
 own repository. It is mutual when both sides have published it. Invite tokens and requests that are
@@ -57,16 +58,20 @@ until it asks to join.
 5. **Proposals back to org-os.**
 
 Today: phase 3's code and phase 1's connector are released in org-os 0.7.4 and 0.7.5. Phases 2 and 4
-are the drafts in this repository (`lexicons/`, `index/`).
+are the drafts in this repository (`lexicons/`, `index/`). Phase 2 has its domain, `orgosnetwork.org`,
+not yet registered; nothing is published under it.
 
 ## Not doing
 
 - No fork of other projects' lexicons. Changes go upstream.
-- No hosted accounts or PDS for groups, and no labeler.
+- The network runs no hosted accounts or PDS for groups, and no labeler. Hosting is a role a member may take
+  instead: one organisation may host another's files, portal or Hub by an agreement the two publish; the
+  hosted one keeps its own account, can see who hosts it, and can leave with its files and its private store.
 - Nothing from inside a membrane on the open network.
 - No republishing of individuals' data.
 
 ## Left open
 
-- The network's domain, which replaces the placeholder authority (Q7).
+- Registering `orgosnetwork.org` and publishing profile and link under it (Q7; see
+  [PUBLISHING.md](PUBLISHING.md)).
 - Where the index is hosted (Q6).

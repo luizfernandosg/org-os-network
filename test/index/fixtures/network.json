@@ -5,8 +5,8 @@
     { "name": "Group C", "did": null, "handle": null, "source": "fixture" }
   ],
   "patterns": [
-    "example.orgosnetwork.profile",
-    "example.orgosnetwork.need",
+    "org.orgosnetwork.profile",
+    "org.orgosnetwork.need",
     "xyz.regencoordination.kb.*",
     "app.certified.actor.organization",
     "org.hypercerts.context.attachment"
@@ -30,7 +30,7 @@
         { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s2", "cid": "c-s2", "value": { "$type": "xyz.regencoordination.kb.signal", "title": "Bioregional finance", "notes": "second" } },
         { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.signal/s3", "cid": "c-s3", "value": { "$type": "xyz.regencoordination.kb.signal", "title": "Commons governance", "notes": "third" } },
         { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/xyz.regencoordination.kb.resource/r1", "cid": "c-r1", "value": { "$type": "xyz.regencoordination.kb.resource", "title": "A field guide" } },
-        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/example.orgosnetwork.need/n1", "cid": "c-n1", "value": { "$type": "example.orgosnetwork.need", "title": "Translators" } },
+        { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/org.orgosnetwork.need/n1", "cid": "c-n1", "value": { "$type": "org.orgosnetwork.need", "title": "Translators" } },
         { "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/app.bsky.feed.post/p1", "cid": "c-p1", "value": { "$type": "app.bsky.feed.post", "text": "not followed" } },
         { "uri": "at://did:plc:zzzzzzzzzzzzzzzzzzzzzzzz/xyz.regencoordination.kb.resource/foreign", "cid": "c-f", "value": { "$type": "xyz.regencoordination.kb.resource", "title": "Foreign record served by A's PDS" } }
       ]
