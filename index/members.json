@@ -1,12 +1,12 @@
 {
-  "note": "The first members of the network (decision Q12 in docs/DESIGN.md, 2026-11-22). The index reads only these DIDs. A null DID means the member has no atproto account yet; it is listed and read nothing.",
+  "note": "The organisations the index reads first (decision Q12 in docs/DESIGN.md, 2026-11-22). None has joined yet: an organisation is a member once it and the network it joins have each published the link. The index reads only these DIDs. A null DID means the organisation has no atproto account yet; it is listed and read nothing. The key stays `members` because the index's code reads it.",
   "members": [
     {
       "name": "ReFi DAO",
       "did": "did:plc:ie6nze3zltsffksdwlhl2hbw",
       "handle": "refidao-commons.bsky.social",
       "source": "The ReFi DAO Knowledge Commons repository (publishes xyz.regencoordination.kb.*): the commons' development identity, opened 2026-09-21. DID document read at plc.directory 2026-11-22.",
-      "caveat": "The commons' notes call this a disposable dev identity, to be replaced at a later phase of the commons' own plan. ReFi DAO has no Certified account yet."
+      "caveat": "A development identity: this DID may be replaced. ReFi DAO has no Certified account yet."
     },
     {
       "name": "ReFi BCN",
