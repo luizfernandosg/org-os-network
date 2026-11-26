@@ -83,7 +83,7 @@ for (const n of ['need', 'offer']) {
   test(`${n}: key tid, marked draft, says why it has no visibility field`, () => {
     const doc = byName[n];
     assert.equal(doc.defs.main.key, 'tid');
-    assert.match(doc.description, /^Draft\./);
+    assert.match(doc.description, /^Draft, not published until co-designed with Weave\./);
     assert.match(doc.description, /no visibility field/);
     assert.match(doc.description, /private and matching-only/);
     assert.deepEqual(doc.defs.main.record.required.sort(), ['createdAt', 'text', 'title']);

@@ -1,7 +1,7 @@
 {
   "lexicon": 1,
   "id": "org.orgosnetwork.offer",
-  "description": "Draft. Something an organisation offers the network, published in the open so others can take it up. Only public offers exist as records: an org-os instance's private and matching-only offers never leave it, so this lexicon has no visibility field. Deliberately small, to be co-designed with Weave before it settles.",
+  "description": "Draft, not published until co-designed with Weave. Something an organisation offers the network, published in the open so others can take it up. Only public offers exist as records: an org-os instance's private and matching-only offers never leave it, so this lexicon has no visibility field. Deliberately small.",
   "defs": {
     "main": {
       "type": "record",
