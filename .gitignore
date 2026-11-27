@@ -3,3 +3,4 @@ index/data/
 *.sqlite
 *.sqlite-*
 .env
+portal/out/

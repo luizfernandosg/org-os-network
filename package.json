@@ -15,7 +15,8 @@
     "publish:lexicons": "node scripts/publish-lexicons.mjs",
     "index:rebuild": "node index/src/backfill.mjs rebuild",
     "index:follow": "node index/src/follow.mjs",
-    "index:serve": "node index/src/serve.mjs"
+    "index:serve": "node index/src/serve.mjs",
+    "portal:build": "node portal/src/build.mjs"
   },
   "devDependencies": {
     "@atproto/lexicon": "^0.7.22"
